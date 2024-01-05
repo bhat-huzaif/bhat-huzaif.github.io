@@ -1,11 +1,38 @@
 <html>
 <script>
-let x = prompt("Enter Stating No of loop")
-let y = prompt("Enter Ending No of loop")           
-while (x<=y)
-  {
-    print(x);
-    x++;
+const prompt = require("prompt-sync")();
+let attempts = 0;
+let score = 10;
+
+const CreateNum = () => {
+  return Math.floor(Math.random() * 10);
+};
+let rannum = CreateNum();
+
+const greater_lesser = () => {
+  if (guessedn > rannum) return "greater";
+  else return "lesser";
+};
+
+let guessedn = prompt(`Enter a Number => `);
+
+while (guessedn != rannum) {
+  if (score == 0 || score < 0) {
+    alert("You Have 0 attempts left! Try Again.");
+    break;
+  } else {
+    guessedn = prompt(
+      `${guessedn} is ${greater_lesser()} than the number (${score} Attempts left), Try Another Number => `,
+    );
+    attempts++;
+    score--;
   }
+}
+if (score != 0 || score > 0) {
+  alert(
+    `Congratulations! You have guessed the number, The Number was ${rannum}.\n${attempts} Wrong Attempts.\nYour Score is ${score}/10.`,
+  );
+}
+
 </script>
 </html>
