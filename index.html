@@ -12,7 +12,7 @@ const greater_lesser = () => {
   else return "lesser";
 };
 
-let guessedn = prompt(`Enter a Number => `);
+let guessedn = prompt(`Enter a Number`);
 
 while (guessedn != rannum) {
   if (score == 0 || score < 0) {
@@ -20,7 +20,7 @@ while (guessedn != rannum) {
     break;
   } else {
     guessedn = prompt(
-      `${guessedn} is ${greater_lesser()} than the number (${score} Attempts left), Try Another Number => `,
+      `${guessedn} is ${greater_lesser()} than the number (${score} Attempts left), Try Another Number`,
     );
     attempts++;
     score--;
